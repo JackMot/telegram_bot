@@ -7,6 +7,10 @@ from config.config_reader import load_config
 from app.handlers.common import register_handlers_common
 from app.handlers.work import register_handlers_work
 from app.handlers.lab import register_handlers_lab
+from handlers.survey_module.professor import register_handlers_professor
+from handlers.survey_module.student import register_handlers_student
+from handlers.survey_module.survey import register_handlers_survey
+from handlers.survey_module.survey_menu import register_handlers_survey_menu
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +38,7 @@ async def main():
         level=logging.DEBUG,
         format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
     )
-    logger.error("Starting bot")
+    logger.info("Starting bot")
 
     # Парсинг файла конфигурации
     config = load_config("config/bot.ini")
@@ -46,7 +50,11 @@ async def main():
     # Регистрация хэндлеров
     register_handlers_common(dp)
     register_handlers_lab(dp)
-    register_handlers_work(dp,admin_id=config.tg_bot.admin_id)
+    register_handlers_work(dp, admin_id=config.tg_bot.admin_id)
+    register_handlers_survey_menu(dp)
+    register_handlers_professor(dp)
+    register_handlers_student(dp)
+    register_handlers_survey(dp)
 
     # Установка команд бота
     await set_commands(bot)
