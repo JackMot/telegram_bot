@@ -19,10 +19,6 @@ link_update_invalid_message = 'Пожалуйста отправьте суще�
 
 link_update_error_message = 'Потеряна связть с модулем отправки,попробуйте ещё раз'
 
-register_start_message = 'Для регистрации в системе нажмите на кнопку "Зарегистрироваться"'
-
-register_missing_data_message = 'Произошла ошибка: ваших данных нет в системе, обратитесь к администратору за помощью'
-
 error_message = 'Похоже что-то пошло не так...\n' \
                 'Попробуйте еще раз '
 
@@ -38,6 +34,4 @@ MESSAGES = {
     'link_update_error': link_update_error_message,
     'error': error_message,
     'api_error': api_error_message,
-    'register.start': register_start_message,
-    'register.data.error': register_missing_data_message,
 }
