@@ -2,14 +2,10 @@ import json
 import logging
 
 from aiogram import Dispatcher, types
-from aiogram.bot.bot import Bot as bot
 from aiogram.dispatcher import FSMContext
-from aiogram.dispatcher.filters.state import State, StatesGroup
 import config
 import keyboards
 from handlers.survey_module.survey_menu import SurveyGeneralStates
-from handlers.survey_module.professor import ProfessorStates
-from handlers.survey_module.student import StudentStates
 from spreadsheets import add_result_to_worksheet
 logger = logging.getLogger(__name__)
 
