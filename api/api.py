@@ -69,7 +69,7 @@ def create_list_sheet(year: str):
                 {
                     "addSheet": {
                         "properties": {
-                            "title": "921704-" + year,
+                            "title": "Студенты",
                             "gridProperties": {
                                 "rowCount": 40,
                                 "columnCount": 12
