@@ -11,6 +11,7 @@ from handlers.survey_module.professor import register_handlers_professor
 from handlers.survey_module.student import register_handlers_student
 from handlers.survey_module.survey import register_handlers_survey
 from handlers.survey_module.survey_menu import register_handlers_survey_menu
+from app.handlers.register import register_handlers_register
 
 logger = logging.getLogger(__name__)
 
@@ -22,6 +23,7 @@ async def set_commands(bot: Bot):
     commands = [
         BotCommand(command="/help", description="Получить информацию о боте"),
         BotCommand(command="/cancel", description="Отменить текущее действие"),
+        BotCommand(command="/register", description="Зарегестрироваться в системе"),
         BotCommand(command="/lab", description="Загрузить ссылку на работу"),
         BotCommand(command="/work", description="Доступ к работам(для преподавателей)"),
         BotCommand(command="/start", description="Начать работу с ботом"),
@@ -49,6 +51,7 @@ async def main():
 
     # Регистрация хэндлеров
     register_handlers_common(dp)
+    register_handlers_register(dp)
     register_handlers_lab(dp)
     register_handlers_work(dp, admin_id=config.tg_bot.admin_id)
     register_handlers_survey_menu(dp)
