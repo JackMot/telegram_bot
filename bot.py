@@ -3,8 +3,10 @@ import logging
 from aiogram import Bot, Dispatcher
 from aiogram.types import BotCommand
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
-from app.config_reader import load_config
+from config.config_reader import load_config
 from app.handlers.common import register_handlers_common
+from app.handlers.work import register_handlers_work
+from app.handlers.lab import register_handlers_lab
 
 logger = logging.getLogger(__name__)
 
@@ -43,6 +45,8 @@ async def main():
 
     # Регистрация хэндлеров
     register_handlers_common(dp)
+    register_handlers_lab(dp)
+    register_handlers_work(dp,admin_id=config.tg_bot.admin_id)
 
     # Установка команд бота
     await set_commands(bot)

@@ -8,7 +8,6 @@ from dataclasses import dataclass
 class TgBot:
     token: str
     admin_id: int
-    moder_id: int
 
 
 # ----------
@@ -30,6 +29,5 @@ def load_config(path: str):
         tg_bot=TgBot(
             token=tg_bot["token"],
             admin_id=int(tg_bot["admin_id"]),
-            moder_id=int(tg_bot["moder_id"])
         )
     )
